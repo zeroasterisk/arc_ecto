@@ -46,6 +46,9 @@ defmodule Arc.Ecto.Schema do
               else
                 fields
               end
+
+            # Casting binary
+            {field, file}, fields -> [{field, {file, scope}} | fields]
           end)
           |> Enum.into(%{})
       end
